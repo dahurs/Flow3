@@ -1,0 +1,113 @@
+[
+    {
+        "id": "51ee3dda03fde074",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "71de15a1e91f0c35",
+        "type": "inject",
+        "z": "51ee3dda03fde074",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "b1bc1b200d110f2c"
+            ]
+        ]
+    },
+    {
+        "id": "054f39167b73c9d5",
+        "type": "debug",
+        "z": "51ee3dda03fde074",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b1bc1b200d110f2c",
+        "type": "function",
+        "z": "51ee3dda03fde074",
+        "name": "",
+        "func": "\n// Lo que está después de “//” son comentarios\n// Crea un objeto Date a partir del payload enviado por timestamp\nvar date = new Date(msg.payload);\n// Cambia el payload para que sea una fecha con formato\nmsg.payload = date.toString();\n// Regresa el mensaje para que se envíe al sigueinte nodo\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "054f39167b73c9d5",
+                "4b770bb13be68ab6"
+            ]
+        ]
+    },
+    {
+        "id": "4b770bb13be68ab6",
+        "type": "ui_text",
+        "z": "51ee3dda03fde074",
+        "group": "ffb67251030115fd",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "La hora es",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 610,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ffb67251030115fd",
+        "type": "ui_group",
+        "name": "Flow2 Fecha G8 - Tab1",
+        "tab": "e5902d0ddbdbd8a1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e5902d0ddbdbd8a1",
+        "type": "ui_tab",
+        "name": "Flow3 G8-tab2",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
