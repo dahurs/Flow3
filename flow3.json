@@ -1,0 +1,253 @@
+[
+    {
+        "id": "f49b42e65ed4edf2",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "546ceb08f825bf23",
+        "type": "inject",
+        "z": "f49b42e65ed4edf2",
+        "name": "inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "b3283c48313e2e72"
+            ]
+        ]
+    },
+    {
+        "id": "737d593871c97125",
+        "type": "inject",
+        "z": "f49b42e65ed4edf2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "valor bajo",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 210,
+        "y": 220,
+        "wires": [
+            [
+                "cc1ff635ccf50777",
+                "606132ff251435a4"
+            ]
+        ]
+    },
+    {
+        "id": "5b5d52896783f7a6",
+        "type": "inject",
+        "z": "f49b42e65ed4edf2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "estable",
+        "payload": "5",
+        "payloadType": "num",
+        "x": 200,
+        "y": 280,
+        "wires": [
+            [
+                "cc1ff635ccf50777",
+                "606132ff251435a4"
+            ]
+        ]
+    },
+    {
+        "id": "a78d98ed0c81203b",
+        "type": "inject",
+        "z": "f49b42e65ed4edf2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "peligro",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 200,
+        "y": 360,
+        "wires": [
+            [
+                "cc1ff635ccf50777",
+                "606132ff251435a4"
+            ]
+        ]
+    },
+    {
+        "id": "b3283c48313e2e72",
+        "type": "ui_text_input",
+        "z": "f49b42e65ed4edf2",
+        "name": "",
+        "label": "texto de prueba",
+        "tooltip": "",
+        "group": "7a9c0a02f6ddb5ee",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 580,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc1ff635ccf50777",
+        "type": "ui_gauge",
+        "z": "f49b42e65ed4edf2",
+        "name": "",
+        "group": "7a9c0a02f6ddb5ee",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "{{msg.topic}}",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 570,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "606132ff251435a4",
+        "type": "ui_chart",
+        "z": "f49b42e65ed4edf2",
+        "name": "",
+        "group": "fcb2cd9d2604a621",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "{{msg.topic}}",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 570,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a9c0a02f6ddb5ee",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "e5902d0ddbdbd8a1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fcb2cd9d2604a621",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "e5902d0ddbdbd8a1",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "e5902d0ddbdbd8a1",
+        "type": "ui_tab",
+        "name": "Flow3 G8-tab2",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
